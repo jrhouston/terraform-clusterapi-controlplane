@@ -3,6 +3,20 @@ variable "kubernetes_version" {
   description = "Cluster Kubernetes version"
 }
 
+variable "cluster_network" {
+  type = object({
+    api_service_port = optional(number)
+    serviceDomain = optional(string)
+    services = optional(object({
+      cidr_blocks = list(string)
+    }))
+    pods = optional(object({
+      cidr_blocks = list(string)
+    }))
+  })
+  default = {}
+}
+
 resource null_resource example {
   provisioner "local-exec" {
     command = "echo test configuration"
