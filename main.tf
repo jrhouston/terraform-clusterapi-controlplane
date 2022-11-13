@@ -39,3 +39,7 @@ output "control_plane_endpoint_host" {
 output "control_plane_endpoint_port" {
   value = 8000
 }
+
+output "kubeconfig" {
+  value = "test"
+}
